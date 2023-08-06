@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        font-family: sans-serif;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100pc;
+      }
+      table th,
+      table td {
+        border: 1px solid #ccc;
+        padding: 5px;
+        text-align: left;
+      }
+      table caption {
+        caption-side: bottom;
+        text-align: right;
+        font-style: italic;
+        font-size: 10px;
+        margin: 5px 0;
+      }
+      tfoot td {
+        background: #ddd;
+        font-style: italic;
+      }
+      .responsiv {
+        max-width: 100%;
+        overflow: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    <div class="responsiv">
+      <table>
+        <caption>
+          ola
+        </caption>
+        <thead>
+          <tr>
+            <th>t1</th>
+            <th>t2</th>
+            <th>t3</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <td colspan="2">11</td>
+            <td>31</td>
+          </tr>
+          <tr>
+            <td rowspan="2">11</td>
+            <td>21</td>
+            <td>31</td>
+          </tr>
+          <tr>
+            <td>11</td>
+            <td>11</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td>11</td>
+            <td>21</td>
+            <td>31</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </body>
+</html>

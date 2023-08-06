@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+
+      label {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="#" method="get" target="_blank" autocapitalize="off">
+      <p>formulario:</p>
+      <p>
+        <label for="nome"> nome:</label>
+        <input type="text" id="nome" name="name" placeholder="nome" />
+      </p>
+
+      <p>
+        <label for="dev"> e um dev:</label>
+        <input type="checkbox" id="dev" name="dev" value="sim" checked />
+      </p>
+
+      <p>
+        <p> genero:</p>
+
+        <input type="radio" id="H" name="genero" value="H" />
+        <label for="H"> H</label>
+
+        <input type="radio" id="M" name="genero" value="M" />
+        <label for="M"> M</label>
+
+        <input type="radio" id="+" name="genero" value="+" checked/>
+        <label for="+" > +</label>
+      </p>
+
+      <p>
+        <label for="data"> data:</label>
+        <input type="date" id="data" name="data" value="2020-04-20"/>
+      </p>
+
+      <p>
+        <label for="datetime"> datetime:</label>
+        <input type="datetime-local" id="datetime" name="datetime" value="2020-04-20T20:02"/>
+      </p>
+
+      <p>
+        <label for="time"> datetime:</label>
+        <input type="time" id="time" name="time" value="20:02:03"/>
+      </p>
+
+      <p>
+        <label for="color"> color:</label>
+        <input type="color" id="color" name="color" value="#FF0000"/>
+      </p>
+      <p>
+        <label for="email"> color:</label>
+        <input type="email" id="email" name="email" placeholder="email"/>
+      </p>
+
+      <p>
+        <label for="file"> color:</label>
+        <input type="file" id="file" name="file" accept=".png,.pdf,image/*" multiple/>
+      </p>
+
+      <p>
+        <input type="button" id="nome" name="name" placeholder="nome" value="1" />
+      </p>
+      <p><button type="submit">enter</button></p>
+      <p><button type="reset">reset</button></p>
+    </form>
+  </body>
+</html>
