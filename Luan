@@ -1,0 +1,12 @@
+[Unit]
+Description=Meu Serviço
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/dotnet /caminho/para/seu/executavel.dll
+WorkingDirectory=/caminho/para/o/diretorio/do/executavel
+Restart=always
+User=pi
+
+[Install]
+WantedBy=multi-user.target
