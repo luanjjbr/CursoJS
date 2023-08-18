@@ -19,3 +19,17 @@ sudo systemctl enable luan.service
 sudo systemctl start luan.service
 
 sudo reboot
+
+[Unit]
+Description=Descrição do seu serviço
+After=network.target
+
+[Service]
+ExecStart=/caminho/completo/do/seu/script/start_my_csharp_app.sh
+WorkingDirectory=/caminho/para/o/diretorio/do/seu/projeto
+Restart=always
+User=seu_usuario
+
+[Install]
+WantedBy=multi-user.target
+
