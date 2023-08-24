@@ -33,3 +33,36 @@ User=seu_usuario
 [Install]
 WantedBy=multi-user.target
 
+
+
+Criar serviço systemd:
+
+Em um terminal no Raspberry Pi, crie um novo arquivo de configuração de serviço systemd usando um editor de texto. Por exemplo, para criar um serviço chamado `myapp`, você digitaria `sudo nano /etc/systemd/system/myapp.service`.
+
+conteúdo do arquivo:
+
+[Unit]
+Description=My .NET Core App
+
+[Service]
+ExecStart=/usr/bin/dotnet /path/to/your/app.dll
+Restart=always
+RestartSec=10  # Reinicia o serviço após 10 segundos se a execução do dotnet falhar
+SyslogIdentifier=dotnet-example
+User=pi
+Environment=ASPNETCORE_ENVIRONMENT=Production
+
+[Install]
+WantedBy=multi-user.target
+
+Alterar `/path/to/your/app.dll` para o caminho completo do arquivo DLL de sua aplicação .NET Core.
+
+Ativar e iniciar o serviço:
+
+Depois de salvar o arquivo de configuração do serviço, você precisa recarregar o daemon systemd para que ele conheça o novo serviço. Você pode fazer isso com `sudo systemctl daemon-reload`.
+
+Depois, você pode iniciar o serviço com `sudo systemctl start myapp`.
+
+Para que o serviço inicie automaticamente no boot, você precisa habilitá-lo. Você pode fazer isso com `sudo systemctl enable myapp`.
+
+Agora, o seu aplicativo .NET Core deve iniciar automaticamente sempre que o seu Raspberry Pi é iniciado.
