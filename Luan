@@ -1,68 +1,20 @@
-[Unit]
-Description=Meu Serviço
-After=network.target
+Primeiro Passo instalar o .Net no RaspBerry
 
-[Service]
-ExecStart=/usr/bin/dotnet /caminho/para/seu/executavel.dll
-WorkingDirectory=/caminho/para/o/diretorio/do/executavel
-Restart=always
-User=pi
+Pode conferir no link a seguir o passo a passo: 	
 
-[Install]
-WantedBy=multi-user.target
+	https://learn.microsoft.com/pt-br/dotnet/iot/deployment
 
+ou seguir estes passos:
+1. Para instalar o .NET execute o comando abaixo:
 
-sudo systemctl daemon-reload
+	curl -sSL https://dot.net/v1/dotnet-install.sh | bash  
 
-sudo systemctl enable luan.service
+2. Para simplificar a resolução do caminho, adicione uma variável de ambiente DOTNET_ROOT e o diretório .dotnet a $PATH com os seguintes comandos 
 
-sudo systemctl start luan.service
+	echo 'export DOTNET_ROOT=$HOME/.dotnet' >> ~/.bashrc
+	echo 'export PATH=$PATH:$HOME/.dotnet' >> ~/.bashrc
+	source ~/.bashrc
 
-sudo reboot
-
-[Unit]
-Description=Descrição do seu serviço
-After=network.target
-
-[Service]
-ExecStart=/caminho/completo/do/seu/script/start_my_csharp_app.sh
-WorkingDirectory=/caminho/para/o/diretorio/do/seu/projeto
-Restart=always
-User=seu_usuario
-
-[Install]
-WantedBy=multi-user.target
-
-
-
-Criar serviço systemd:
-
-Em um terminal no Raspberry Pi, crie um novo arquivo de configuração de serviço systemd usando um editor de texto. Por exemplo, para criar um serviço chamado `myapp`, você digitaria `sudo nano /etc/systemd/system/myapp.service`.
-
-conteúdo do arquivo:
-
-[Unit]
-Description=My .NET Core App
-
-[Service]
-ExecStart=/usr/bin/dotnet /path/to/your/app.dll
-Restart=always
-RestartSec=10  # Reinicia o serviço após 10 segundos se a execução do dotnet falhar
-SyslogIdentifier=dotnet-example
-User=pi
-Environment=ASPNETCORE_ENVIRONMENT=Production
-
-[Install]
-WantedBy=multi-user.target
-
-Alterar `/path/to/your/app.dll` para o caminho completo do arquivo DLL de sua aplicação .NET Core.
-
-Ativar e iniciar o serviço:
-
-Depois de salvar o arquivo de configuração do serviço, você precisa recarregar o daemon systemd para que ele conheça o novo serviço. Você pode fazer isso com `sudo systemctl daemon-reload`.
-
-Depois, você pode iniciar o serviço com `sudo systemctl start myapp`.
-
-Para que o serviço inicie automaticamente no boot, você precisa habilitá-lo. Você pode fazer isso com `sudo systemctl enable myapp`.
-
-Agora, o seu aplicativo .NET Core deve iniciar automaticamente sempre que o seu Raspberry Pi é iniciado.
+3. Verificar a instalação do .NET execute o comando abaixo:
+	
+	dotnet –version
